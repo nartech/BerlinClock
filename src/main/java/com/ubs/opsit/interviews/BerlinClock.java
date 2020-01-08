@@ -23,9 +23,6 @@ public class BerlinClock implements TimeConverter {
      *          O on odd seconds
      *  */
     private String getSeconds(int secs) {
-        if (secs > 60) {
-            throw new InvalidTimeException("Invalid time, secs > 60");
-        }
         String ret = "O";
         if (secs % 2 == 0) {
             ret = "Y";
@@ -39,9 +36,6 @@ public class BerlinClock implements TimeConverter {
      *      Third row shows hours in sum of 1 (hours%5 show that many Rs and remaining O)
      * */
     private String getHours(int hours) {
-        if (hours > 24) {
-            throw new InvalidTimeException("Invalid time, hours " + hours);
-        }
         int firstRowHours = hours / 5;
         int onLights=0;
         StringBuilder hoursLights = new StringBuilder("\n");
@@ -74,9 +68,6 @@ public class BerlinClock implements TimeConverter {
      *      Fifth row shows minutes in sum of 1 (mins%5 show that many Y and remaining O)
      * */
     private String getMinutes(int mins) {
-        if (mins > 59) {
-            throw new InvalidTimeException("Invalid time, minutes " + mins);
-        }
         StringBuilder minuteLights = new StringBuilder("\n");
 
         int firstRowMins = mins / 5;
