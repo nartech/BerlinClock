@@ -7,9 +7,9 @@ apply plugin: 'eclipse'
 version = '1.0-SNAPSHOT'
 group = 'org.suggs.interviews.berlinclock'
 
-wrapper {
+task wrapper(type: Wrapper){
     description = 'Generates gradlew scripts for NIX and win envs'
-    gradleVersion = '5.6.4'
+    gradleVersion = '1.10'
 }
 
 repositories {
