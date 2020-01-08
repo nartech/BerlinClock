@@ -113,11 +113,11 @@ public class BerlinClock implements TimeConverter {
                 getMinutes(Integer.parseInt(minutes));
     }
 
-    public static void main(String[] args) {
-        BerlinClock bc = new BerlinClock();
-        //bc.convertTime("00:00:00");
-        //bc.convertTime("13:17:01");
-//        bc.convertTime("23:59:59");
-        System.out.println(bc.convertTime("24:00:00"));
-    }
+//    public static void main(String[] args) {
+//        BerlinClock bc = new BerlinClock();
+//        //bc.convertTime("00:00:00");
+//        //bc.convertTime("13:17:01");
+////        bc.convertTime("23:59:59");
+//        System.out.println(bc.convertTime("24:00:00"));
+//    }
 }
