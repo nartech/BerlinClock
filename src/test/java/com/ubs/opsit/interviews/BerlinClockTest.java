@@ -64,4 +64,60 @@ public class BerlinClockTest {
         }
     }
 
+
+    @Test
+    public void testSeconds() {
+        Assert.assertEquals("Y", bc.getSeconds(20));
+        Assert.assertEquals("O", bc.getSeconds(33));
+    }
+
+    @Test
+    public void testTopHours() {
+        Assert.assertEquals("OOOO", bc.getTopHours(3));
+        Assert.assertEquals("ROOO", bc.getTopHours(6));
+        Assert.assertEquals("RROO", bc.getTopHours(12));
+        Assert.assertEquals("RRRO", bc.getTopHours(16));
+        Assert.assertEquals("RRRR", bc.getTopHours(21));
+
+        Assert.assertEquals(4, bc.getTopHours(3).length());
+        Assert.assertEquals(4, bc.getTopHours(12).length());
+    }
+
+    @Test
+    public void testBottomHours() {
+        Assert.assertEquals("OOOO", bc.getBottomHours(20));
+        Assert.assertEquals("ROOO", bc.getBottomHours(1));
+        Assert.assertEquals("RROO", bc.getBottomHours(12));
+        Assert.assertEquals("RRRO", bc.getBottomHours(18));
+        Assert.assertEquals("RRRR", bc.getBottomHours(24));
+
+        Assert.assertEquals(4, bc.getBottomHours(17).length());
+        Assert.assertEquals(4, bc.getBottomHours(22).length());
+    }
+
+    @Test
+    public void testTopMinutes() {
+        Assert.assertEquals("YYRYOOOOOOO", bc.getTopMinutes(20));
+        Assert.assertEquals("OOOOOOOOOOO", bc.getTopMinutes(1));
+        Assert.assertEquals("YYRYYROOOOO", bc.getTopMinutes(32));
+        Assert.assertEquals("YYROOOOOOOO", bc.getTopMinutes(18));
+        Assert.assertEquals("YYRYYRYYRYY", bc.getTopMinutes(59));
+
+        Assert.assertEquals(11, bc.getTopMinutes(17).length());
+        Assert.assertEquals(11, bc.getTopMinutes(22).length());
+    }
+
+    @Test
+    public void testBottomMinutes() {
+        Assert.assertEquals("OOOO", bc.getBottomMinutes(20));
+        Assert.assertEquals("YOOO", bc.getBottomMinutes(1));
+        Assert.assertEquals("YYOO", bc.getBottomMinutes(12));
+        Assert.assertEquals("YYYO", bc.getBottomMinutes(18));
+        Assert.assertEquals("YYYY", bc.getBottomMinutes(24));
+
+        Assert.assertEquals(4, bc.getBottomMinutes(17).length());
+        Assert.assertEquals(4, bc.getBottomMinutes(22).length());
+    }
+
+
 }
